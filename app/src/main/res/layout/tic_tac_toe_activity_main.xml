@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TicTacToeGameMainActivity">
+
+    <TextView
+        android:id="@+id/welcome_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/welcome_to_tic_tac_toe_text_view"
+        android:textSize="@dimen/tic_tac_toe_text_view_size"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/tic_tac_toe_game_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text_view"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tic_tac_toe_game_result_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:gravity="center"
+            android:hint="@string/tic_tac_toe_game_result"
+            android:textSize="24sp"
+            tools:text="X wins" />
+
+        <Button
+            android:id="@+id/play_again_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tic_tac_toe_game_result_text_view"
+            android:layout_alignStart="@id/tic_tac_toe_game_result_text_view"
+            android:layout_alignEnd="@id/tic_tac_toe_game_result_text_view"
+            android:text="@string/play_again_btn" />
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/tic_tac_toe_grid"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="49dp"
+        android:background="@drawable/tic_tac_toe_grid"
+        android:columnCount="3"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/image_view_x1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/player_x_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="0"
+            tools:src="@drawable/player_x" />
+
+        <ImageView
+            android:id="@+id/image_view_o1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="33dp"
+            android:contentDescription="@string/player_o_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="1"
+            tools:src="@drawable/player_o" />
+
+        <ImageView
+            android:id="@+id/image_view_x2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="25dp"
+            android:contentDescription="@string/player_x_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="2"
+            tools:src="@drawable/player_x" />
+
+        <ImageView
+            android:id="@+id/image_view_o2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/player_o_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="3"
+            tools:src="@drawable/player_o" />
+
+        <ImageView
+            android:id="@+id/image_view_x3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="33dp"
+            android:contentDescription="@string/player_x_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="4"
+            tools:src="@drawable/player_x" />
+
+        <ImageView
+            android:id="@+id/image_view_o3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/player_o_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="5"
+            tools:src="@drawable/player_o" />
+
+        <ImageView
+            android:id="@+id/image_view_x4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="45dp"
+            android:contentDescription="@string/player_x_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="6"
+            tools:src="@drawable/player_x" />
+
+        <ImageView
+            android:id="@+id/image_view_o4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="53dp"
+            android:contentDescription="@string/player_o_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="7"
+            tools:src="@drawable/player_o" />
+
+        <ImageView
+            android:id="@+id/image_view_x5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="45dp"
+            android:contentDescription="@string/player_x_image"
+            android:onClick="insertNoughtCircleAndDisplayResult"
+            android:tag="8"
+            tools:src="@drawable/player_x" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
