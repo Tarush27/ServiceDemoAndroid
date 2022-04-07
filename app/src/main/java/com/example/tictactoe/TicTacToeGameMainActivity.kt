@@ -3,8 +3,10 @@ package com.example.tictactoe
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tictactoe.databinding.TicTacToeActivityMainBinding
+import ticTacToeGameViewModel.TicTacToeViewModel
 
 class TicTacToeGameMainActivity : AppCompatActivity() {
 
@@ -23,7 +25,7 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
         intArrayOf(0, 4, 8),
         intArrayOf(2, 4, 6)
     )
-
+    private val ticTacToeViewModel: TicTacToeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ticTacToeActivityMainBinding = TicTacToeActivityMainBinding.inflate(layoutInflater)
