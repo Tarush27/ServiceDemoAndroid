@@ -1,6 +1,8 @@
 package com.example.tictactoe
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -30,9 +32,11 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
         setContentView(ticTacToeActivityMainBinding.root)
     }
 
+
     fun insertNoughtCircleAndDisplayResult(view: View?) {
         val setPieceImage = view as ImageView
         val pieceImageState = setPieceImage.tag.toString().toInt()
+
         if (cellState[pieceImageState] == 2 && gameIsActive) {
             if (activePlayer == 1) {
                 setPieceImage.setImageResource(R.drawable.player_x)
@@ -92,13 +96,14 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
         for (currentCellValueInGrid in cellState.indices) {
             cellState[currentCellValueInGrid] = 2
         }
+
         resetImagesInGrid()
     }
 
     private fun resetImagesInGrid() {
         ticTacToeActivityMainBinding.ticTacToeGrid.also {
             for (currentGridChildCount in 0..it.childCount) {
-                (it.getChildAt(currentGridChildCount) as ImageView).setImageResource(0)
+                (it.getChildAt(currentGridChildCount) as? ImageView)?.setImageResource(0)
             }
         }
     }
