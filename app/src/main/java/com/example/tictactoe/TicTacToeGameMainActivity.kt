@@ -26,7 +26,6 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tic_tac_toe_activity_main)
         ticTacToeActivityMainBinding = TicTacToeActivityMainBinding.inflate(layoutInflater)
         setContentView(ticTacToeActivityMainBinding.root)
     }
