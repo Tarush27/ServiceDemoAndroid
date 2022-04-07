@@ -11,20 +11,6 @@ import ticTacToeGameViewModel.TicTacToeViewModel
 class TicTacToeGameMainActivity : AppCompatActivity() {
 
     private lateinit var ticTacToeActivityMainBinding: TicTacToeActivityMainBinding
-    private var activePlayer = 1
-    private var gameIsActive = true
-    private var totalCellsInGridMarked = 0
-    private var cellState = intArrayOf(2, 2, 2, 2, 2, 2, 2, 2, 2)
-    private val gridWinningPositions = arrayOf(
-        intArrayOf(0, 1, 2),
-        intArrayOf(3, 4, 5),
-        intArrayOf(6, 7, 8),
-        intArrayOf(0, 3, 6),
-        intArrayOf(1, 4, 7),
-        intArrayOf(2, 5, 8),
-        intArrayOf(0, 4, 8),
-        intArrayOf(2, 4, 6)
-    )
     private val ticTacToeViewModel: TicTacToeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,32 +21,27 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
 
     fun insertNoughtCircleAndDisplayResult(view: View?) {
         val setPieceImage = view as ImageView
-        val pieceImageState = setPieceImage.tag.toString().toInt()
 
-        if (cellState[pieceImageState] == 2 && gameIsActive) {
-            if (activePlayer == 1) {
+        if (ticTacToeViewModel.isGridInitiallyNull(view)) {
+            if (ticTacToeViewModel.isActivePlayer(1)) {
                 setPieceImage.setImageResource(R.drawable.player_x)
-                activePlayer = 0
-                totalCellsInGridMarked++
-                cellState[pieceImageState] = 1
-            } else {
+                ticTacToeViewModel.resetGridValuesForPlacingImageX(view)
+            } else if (ticTacToeViewModel.isPlayerActive(0)) {
                 setPieceImage.setImageResource(R.drawable.player_o)
-                activePlayer = 1
-                totalCellsInGridMarked++
-                cellState[pieceImageState] = 0
+                ticTacToeViewModel.resetGridValuesForPlacingImageO(view)
             }
-            for (currentGridWinningPositions in gridWinningPositions) {
-                if (isGridWinningIndexNotNull(currentGridWinningPositions)
+            for (currentGridWinningPositions in ticTacToeViewModel.getGridWinningPositions()) {
+                if (gridWinningIndices(currentGridWinningPositions)
                 ) {
-                    if (cellState[currentGridWinningPositions[0]] == 1) {
+                    if (ticTacToeViewModel.isPatternFormedImageX(currentGridWinningPositions)) {
                         ticTacToeActivityMainBinding.ticTacToeGameResultTextView.text =
                             getString(R.string.player_x_won)
-                    } else if (cellState[currentGridWinningPositions[0]] == 0) {
+                    } else if (ticTacToeViewModel.isPatternFormedImageO(currentGridWinningPositions)) {
                         ticTacToeActivityMainBinding.ticTacToeGameResultTextView.text =
                             getString(R.string.player_o_won)
                     }
                     ticTacToeActivityMainBinding.ticTacToeGameResult.visibility = View.VISIBLE
-                    gameIsActive = false
+                    ticTacToeViewModel.gameInactive()
                 }
             }
 
@@ -70,33 +51,25 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
     }
 
     private fun isGameDrawn() {
-        if (gameIsActive && (totalCellsInGridMarked == 9)) {
+        if (ticTacToeViewModel.gameDraw()) {
             ticTacToeActivityMainBinding.ticTacToeGameResultTextView.text =
                 getString(R.string.tic_tac_toe_game_drawn)
             ticTacToeActivityMainBinding.ticTacToeGameResult.visibility =
                 View.VISIBLE
-            gameIsActive = false
+            ticTacToeViewModel.gameInactive()
         }
     }
 
-    private fun isGridWinningIndexNotNull(currentGridWinningPositions: IntArray) =
-        checkCurrentGridWinningPosition(currentGridWinningPositions)
+    private fun gridWinningIndices(currentGridWinningPositions: IntArray) =
+        checkCurrentGridWinningPositionNotNull(currentGridWinningPositions)
 
-    private fun checkCurrentGridWinningPosition(currentGridWinningPositions: IntArray): Boolean {
-        val currentGridWinningPosition = cellState[currentGridWinningPositions[0]] ==
-                cellState[currentGridWinningPositions[1]] &&
-                cellState[currentGridWinningPositions[1]] ==
-                cellState[currentGridWinningPositions[2]] &&
-                cellState[currentGridWinningPositions[0]] != 2
-        return currentGridWinningPosition
+    private fun checkCurrentGridWinningPositionNotNull(currentGridWinningPositions: IntArray): Boolean {
+        return ticTacToeViewModel.checkGridWinningPositionNonNUll(currentGridWinningPositions)
     }
 
     fun playTicTacToeGameAgainBtn(view: View?) {
         reinitializeTicTacToeGame()
-        for (currentCellValueInGrid in cellState.indices) {
-            cellState[currentCellValueInGrid] = 2
-        }
-
+        ticTacToeViewModel.setGridDefaultValue()
         resetImagesInGrid()
     }
 
@@ -109,9 +82,7 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
     }
 
     private fun reinitializeTicTacToeGame() {
-        gameIsActive = true
-        totalCellsInGridMarked = 0
-        activePlayer = 1
+        ticTacToeViewModel.resetGridToDefault()
         ticTacToeActivityMainBinding.ticTacToeGameResult.visibility = View.INVISIBLE
     }
 
