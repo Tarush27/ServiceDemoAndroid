@@ -40,6 +40,7 @@
 
         <Button
             android:id="@+id/play_again_btn"
+            android:onClick="playTicTacToeGameAgainBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tic_tac_toe_game_result_text_view"
