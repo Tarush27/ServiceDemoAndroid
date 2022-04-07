@@ -40,12 +40,12 @@
 
         <Button
             android:id="@+id/play_again_btn"
-            android:onClick="playTicTacToeGameAgainBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tic_tac_toe_game_result_text_view"
             android:layout_alignStart="@id/tic_tac_toe_game_result_text_view"
             android:layout_alignEnd="@id/tic_tac_toe_game_result_text_view"
+            android:onClick="playTicTacToeGameAgainBtn"
             android:text="@string/play_again_btn" />
 
     </RelativeLayout>
