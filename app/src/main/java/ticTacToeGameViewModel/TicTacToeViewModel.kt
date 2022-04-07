@@ -54,7 +54,7 @@ class TicTacToeViewModel(application: Application) : AndroidViewModel(applicatio
         cellState[pieceImageState] = 0
     }
 
-    fun checkGridWinningPositionNonNUll(currentGridWinPositions: IntArray): Boolean {
+    fun checkGridWinningPositionNonNull(currentGridWinPositions: IntArray): Boolean {
         val myGridWinPositions = cellState[currentGridWinPositions[0]] ==
                 cellState[currentGridWinPositions[1]] &&
                 cellState[currentGridWinPositions[1]] ==

@@ -64,7 +64,7 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
         checkCurrentGridWinningPositionNotNull(currentGridWinningPositions)
 
     private fun checkCurrentGridWinningPositionNotNull(currentGridWinningPositions: IntArray): Boolean {
-        return ticTacToeViewModel.checkGridWinningPositionNonNUll(currentGridWinningPositions)
+        return ticTacToeViewModel.checkGridWinningPositionNonNull(currentGridWinningPositions)
     }
 
     fun playTicTacToeGameAgainBtn(view: View?) {
