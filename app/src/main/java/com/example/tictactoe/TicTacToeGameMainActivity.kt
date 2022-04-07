@@ -87,7 +87,7 @@ class TicTacToeGameMainActivity : AppCompatActivity() {
         return currentGridWinningPosition
     }
 
-    private fun playTicTacToeGameAgainBtn() {
+    fun playTicTacToeGameAgainBtn(view: View?) {
         reinitializeTicTacToeGame()
         for (currentCellValueInGrid in cellState.indices) {
             cellState[currentCellValueInGrid] = 2
