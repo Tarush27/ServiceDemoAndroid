@@ -30,63 +30,51 @@ class TicTacToeViewModel(application: Application) : AndroidViewModel(applicatio
         return gridWinningPositions
     }
 
-    fun isActivePlayer(activePlayer: Int): Boolean {
-        return activePlayer == 1
-    }
 
-    fun isPlayerActive(activePlayer: Int): Boolean {
-        return activePlayer == 0
-    }
+    /* fun resetGridValuesForPlacingImageX() {
+         activePlayer = 0
+         totalCellsInGridMarked++
+     }
 
-    fun resetGridValuesForPlacingImageX(view: View?) {
-        val setPieceImage = view as ImageView
-        val pieceImageState = setPieceImage.tag.toString().toInt()
-        activePlayer = 0
-        totalCellsInGridMarked++
-        cellState[pieceImageState] = 1
-    }
+     fun resetGridValuesForPlacingImageO() {
 
-    fun resetGridValuesForPlacingImageO(view: View?) {
-        val setPieceImage = view as ImageView
-        val pieceImageState = setPieceImage.tag.toString().toInt()
-        activePlayer = 1
-        totalCellsInGridMarked++
-        cellState[pieceImageState] = 0
-    }
+         activePlayer = 1
+         totalCellsInGridMarked++
+     }*/
 
-    fun checkGridWinningPositionNonNull(currentGridWinPositions: IntArray): Boolean {
-        val myGridWinPositions = cellState[currentGridWinPositions[0]] ==
-                cellState[currentGridWinPositions[1]] &&
-                cellState[currentGridWinPositions[1]] ==
-                cellState[currentGridWinPositions[2]] &&
-                cellState[currentGridWinPositions[0]] != 2
-        return myGridWinPositions
-    }
+    /*   fun checkGridWinningPositionNonNull(currentGridWinPositions: IntArray): Boolean {
+           val myGridWinPositions = cellState[currentGridWinPositions[0]] ==
+                   cellState[currentGridWinPositions[1]] &&
+                   cellState[currentGridWinPositions[1]] ==
+                   cellState[currentGridWinPositions[2]] &&
+                   cellState[currentGridWinPositions[0]] != 2
+           return myGridWinPositions
+       }*/
 
-    fun isPatternFormedImageX(currentGridWinPositions: IntArray): Boolean {
+    /*fun isPatternFormedImageX(currentGridWinPositions: IntArray): Boolean {
         return cellState[currentGridWinPositions[0]] == 1
     }
 
 
     fun isPatternFormedImageO(currentGridWinPositions: IntArray): Boolean {
         return cellState[currentGridWinPositions[0]] == 0
-    }
+    }*/
 
-    fun gameDraw(): Boolean {
+    /*fun gameDraw(): Boolean {
         return gameIsActive && totalCellsInGridMarked == 9
-    }
+    }*/
 
-    fun setGridDefaultValue() {
+    /*fun setGridDefaultValue() {
         for (currentCellValueInGrid in cellState.indices) {
             cellState[currentCellValueInGrid] = 2
         }
-    }
+    }*/
 
-    fun resetGridToDefault() {
+    /*fun resetGridToDefault() {
         gameIsActive = true
         totalCellsInGridMarked = 0
         activePlayer = 1
-    }
+    }*/
 
     fun isGridInitiallyNull(view: View?): Boolean {
         val setPieceImage = view as ImageView
@@ -94,7 +82,7 @@ class TicTacToeViewModel(application: Application) : AndroidViewModel(applicatio
         return cellState[pieceImageState] == 2 && gameIsActive
     }
 
-    fun gameInactive(): Boolean {
+    /*fun gameInactive(): Boolean {
         return !gameIsActive
-    }
+    }*/
 }
