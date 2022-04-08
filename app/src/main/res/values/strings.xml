@@ -9,4 +9,5 @@
     <string name="player_x_won">X wins</string>
     <string name="player_o_won">O wins</string>
     <string name="tic_tac_toe_game_drawn">Game Drawn</string>
+    <string name="tic_tac_toe_splash_screen_icon">Tic Tac Toe Splash Icon</string>
 </resources>
