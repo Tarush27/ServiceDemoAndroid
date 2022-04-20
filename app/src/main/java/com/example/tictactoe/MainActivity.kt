@@ -1,15 +1,19 @@
 package com.example.tictactoe
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-class TicTacToeGameMainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_main)
     }
+
+    fun startSomething(view: View) {}
+    fun stopSomething(view: View) {}
 
 
 }
