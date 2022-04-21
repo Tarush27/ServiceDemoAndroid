@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToe">
         <service
-            android:name=".MyOwnService"
+            android:name="startedService.MyOwnService"
             android:enabled="true" />
 
         <activity android:name=".MainActivity"

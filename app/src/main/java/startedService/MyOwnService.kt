@@ -1,4 +1,4 @@
-package com.example.tictactoe
+package startedService
 
 import android.app.Service
 import android.content.Intent
