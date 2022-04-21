@@ -1,5 +1,6 @@
 package com.example.tictactoe
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +13,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun startSomething(view: View) {}
-    fun stopSomething(view: View) {}
+    fun startSomething(view: View) {
+        val intent = Intent(this, MyOwnService::class.java)
+        startService(intent)
+    }
+
+    fun stopSomething(view: View) {
+        val intent = Intent(this, MyOwnService::class.java)
+        stopService(intent)
+    }
 
 
 }

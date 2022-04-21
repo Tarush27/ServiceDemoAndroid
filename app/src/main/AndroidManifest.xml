@@ -11,20 +11,17 @@
         android:theme="@style/Theme.TicTacToe">
         <service
             android:name=".MyOwnService"
-            android:enabled="true"
-            android:exported="true"></service>
+            android:enabled="true" />
 
-        <activity
-            android:name=".TicTacToeSplashScreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.TicTacToeSplashScreen">
+        <activity android:name=".MainActivity"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
