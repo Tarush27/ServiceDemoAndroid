@@ -8,7 +8,7 @@ import java.util.*
 
 class MyBoundService : Service() {
 
-    private fun generateIntegerRandomNo(): Int {
+     fun generateIntegerRandomNo(): Int {
         val random = Random()
         return random.nextInt(100)
     }
