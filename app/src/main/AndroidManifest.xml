@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tictactoe">
+    package="com.example.servicedemoandroid">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToe">
         <activity
-            android:name=".JobSchedulerMainActivity"
+            android:name="com.example.servicedemoandroid.JobSchedulerMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             android:enabled="false"
             android:exported="false" />
 
-        <activity android:name=".MainActivity2" />
+        <activity android:name="com.example.servicedemoandroid.MainActivity2" />
 
         <service
             android:name="jobIntentService.MyJobService"
@@ -34,7 +34,7 @@
             android:name="startedService.MyOwnService"
             android:enabled="false" />
 
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.example.servicedemoandroid.MainActivity" />
     </application>
 
 </manifest>

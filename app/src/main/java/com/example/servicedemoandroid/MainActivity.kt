@@ -1,4 +1,4 @@
-package com.example.tictactoe
+package com.example.servicedemoandroid
 
 import android.content.Intent
 import android.os.Bundle

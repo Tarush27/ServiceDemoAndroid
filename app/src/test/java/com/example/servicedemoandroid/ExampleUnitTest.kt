@@ -1,4 +1,4 @@
-package com.example.tictactoe
+package com.example.servicedemoandroid
 
 import org.junit.Test
 
