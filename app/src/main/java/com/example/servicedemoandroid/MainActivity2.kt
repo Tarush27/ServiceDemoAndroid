@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import boundService.MyBoundService
+import com.example.tictactoe.R
 
 class MainActivity2 : AppCompatActivity() {
 
