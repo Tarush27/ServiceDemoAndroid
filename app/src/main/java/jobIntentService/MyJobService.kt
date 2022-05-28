@@ -6,7 +6,6 @@ import android.util.Log
 import kotlin.random.Random
 
 private const val TAG = "MyJobService"
-private const val TIME_SLEEP_MILLISECONDS: Long = 1000
 
 class MyJobService : JobService() {
     override fun onStartJob(p0: JobParameters?): Boolean {
